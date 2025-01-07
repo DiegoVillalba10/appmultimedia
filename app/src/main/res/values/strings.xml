@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">App Multimedia</string>
+    <string name="titulo_logo">Logo Animado</string>
+    <string name="nombre_autor">Diego</string>
+    <string name="explicacion_logo">Dibujo compuesto por un círculo, rectángulo y elipse.</string>
+    <string name="explicacion_nombre">Circulo con mi nombre incluido.</string>
+    <string name="explicacion_aplicacion">¡Bienvenido a mi app multimedia! Elige una opción para comenzar.</string>
+    <string name="boton_dibujo">Dibujo</string>
+    <string name="boton_sonido">Sonido</string>
+    <string name="boton_video">Vídeo</string>
+</resources>

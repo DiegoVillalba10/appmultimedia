@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkBackground"
+    android:padding="20dp">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reproductor de Sonidos"
+        android:textSize="32sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+    <!-- Botón de sonido 1 (con estilo moderno) -->
+    <Button
+        android:id="@+id/btnSound1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sonido 1"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/tvTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:padding="15dp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Botón de sonido 2 (con estilo moderno) -->
+    <Button
+        android:id="@+id/btnSound2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sonido 2"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/btnSound1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:padding="15dp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- SeekBar para ajustar volumen (estilo moderno) -->
+    <SeekBar
+        android:id="@+id/seekBarVolume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnSound2"
+        android:layout_marginTop="30dp"
+        android:max="100"
+        android:progress="50"
+        android:thumb="@drawable/seekbar_thumb"
+        android:progressDrawable="@drawable/seekbar_progress" />
+
+    <!-- SeekBar para controlar el progreso de la reproducción (estilo moderno) -->
+    <SeekBar
+        android:id="@+id/seekBarProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seekBarVolume"
+        android:layout_marginTop="20dp"
+        android:max="100"
+        android:progress="0"
+        android:thumb="@drawable/seekbar_thumb"
+        android:progressDrawable="@drawable/seekbar_progress" />
+</RelativeLayout>
