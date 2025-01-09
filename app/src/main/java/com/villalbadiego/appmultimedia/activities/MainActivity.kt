@@ -19,12 +19,15 @@ class MainActivity : AppCompatActivity() {
         val botonVideo = findViewById<Button>(R.id.btnVideo)
 
         // Navegamos a la actividad de dibujo.
-        botonDibujo.setOnClickListener{
+        botonDibujo.setOnClickListener {
             val intent = Intent(this, DrawingActivity::class.java)
             startActivity(intent)
         }
         // Navegamos a la actividad de sonido.
-
+        botonSonido.setOnClickListener {
+            val intent = Intent(this, SoundActivity::class.java)
+            startActivity(intent)
+        }
         // Navegamos a la actividad de video.
     }
 }

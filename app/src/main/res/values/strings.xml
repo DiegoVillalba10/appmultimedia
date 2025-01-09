@@ -8,4 +8,7 @@
     <string name="boton_dibujo">Dibujo</string>
     <string name="boton_sonido">Sonido</string>
     <string name="boton_video">Vídeo</string>
+    <string name="titulo_sonido">Reproductor de Sonidos</string>
+    <string name="sonido_2">Sonido 2</string>
+    <string name="sonido_1">Sonido 1</string>
 </resources>
