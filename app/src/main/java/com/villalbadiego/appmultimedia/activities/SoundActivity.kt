@@ -4,6 +4,7 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +20,7 @@ class SoundActivity : AppCompatActivity() {
     private var estaReproduciendo1 = false
     private var estaReproduciendo2 = false
 
-    private val handler = Handler()
+    private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
