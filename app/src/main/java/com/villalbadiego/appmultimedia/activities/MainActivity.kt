@@ -29,5 +29,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         // Navegamos a la actividad de video.
+        botonVideo.setOnClickListener {
+            val intent = Intent(this, VideoActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

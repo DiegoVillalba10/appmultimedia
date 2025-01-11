@@ -2,13 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="fondo_circulo">#FF0000</color> <!-- Rojo -->
-    <color name="fondo_rectangulo">#00FF00</color> <!-- Verde -->
-    <color name="fondo_elipse">#0000FF</color> <!-- Azul -->
+    <color name="fondo_circulo">#FF0000</color>
+    <color name="fondo_rectangulo">#00FF00</color>
+    <color name="fondo_elipse">#0000FF</color>
     <color name="color_nombre">#000000</color>
-    <color name="colorAccent">#FF4081</color> <!-- Color de acento para el botón de sonido -->
-    <color name="colorPrimary">#3F51B5</color> <!-- Azul para el fondo de los botones -->
-    <color name="colorPrimaryDark">#303F9F</color> <!-- Azul oscuro para algunos botones -->
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="gray">#808080</color>
+    <color name="lightGray">#D3D3D3</color>
+    <color name="lightBlue">#ADD8E6</color>
 
     <color name="darkBackground">#121212</color>
     <color name="buttonBackground">#3D3D3D</color>

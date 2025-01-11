@@ -1,7 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:padding="16dp">
 
     <!-- Texto explicativo para el logo -->
     <TextView
@@ -18,7 +20,12 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:fontFamily="sans-serif-medium" />
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="4dp"
+        android:shadowColor="@color/gray"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2" /> <!-- Sombra suave para el texto -->
 
     <!-- Vista personalizada para el logo animado -->
     <com.villalbadiego.appmultimedia.views.CanvasView
@@ -28,7 +35,11 @@
         android:layout_below="@id/textView"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/canvas_background"
+        android:elevation="4dp"
+        android:clipToOutline="true"
+        tools:targetApi="s" />
 
     <!-- Texto explicativo para el nombre -->
     <TextView
@@ -45,7 +56,12 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:fontFamily="sans-serif-medium" />
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="4dp"
+        android:shadowColor="@color/gray"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2" /> <!-- Sombra suave para el texto -->
 
     <!-- Vista personalizada para el nombre dentro de una figura -->
     <com.villalbadiego.appmultimedia.views.NameView
@@ -56,5 +72,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/nameview_background"
+        android:elevation="4dp"
+        android:clipToOutline="true" /> >
 </RelativeLayout>

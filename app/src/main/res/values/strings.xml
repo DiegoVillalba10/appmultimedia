@@ -9,6 +9,9 @@
     <string name="boton_sonido">Sonido</string>
     <string name="boton_video">Vídeo</string>
     <string name="titulo_sonido">Reproductor de Sonidos</string>
+    <string name="titulo_video">Reproductor de Videos</string>
+    <string name="reproducir_video">Reproducir Vídeo</string>
+    <string name="pausar_video">Pausar Video</string>
     <string name="sonido_2">Sonido 2</string>
     <string name="sonido_1">Sonido 1</string>
 </resources>
