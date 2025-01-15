@@ -54,3 +54,4 @@ class CanvasView(context : Context, atributos : AttributeSet?) : View(context, a
         canvas.restore()
     }
 }
+

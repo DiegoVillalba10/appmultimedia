@@ -36,3 +36,6 @@ class NameView(contexto: Context, atributos: AttributeSet?) : View(contexto, atr
         canvas.restore()
     }
 }
+
+
+

@@ -14,4 +14,9 @@
     <string name="pausar_video">Pausar Video</string>
     <string name="sonido_2">Sonido 2</string>
     <string name="sonido_1">Sonido 1</string>
+    <string name="reproducir_sonido1">Botón para reproducir sonido 1</string>
+    <string name="progreso_sonido1">Progreso del Sonido 1</string>
+    <string name="reproducir_sonido2">Botón para reproducir sonido 2</string>
+    <string name="progreso_sonido2">Progreso del Sonido 2</string>
+    <string name="ajuste_volumen">Ajuste de volumen</string>
 </resources>

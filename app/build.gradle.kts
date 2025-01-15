@@ -48,6 +48,7 @@ dependencies {
 
     // ExoPlayer
     implementation(libs.exoplayer.v2181)
+    implementation(libs.androidx.media3.exoplayer)
 
 
     // Testing

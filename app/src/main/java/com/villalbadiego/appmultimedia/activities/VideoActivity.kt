@@ -1,76 +1,74 @@
 package com.villalbadiego.appmultimedia.activities
 
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
-import android.widget.ProgressBar
+import android.provider.MediaStore
+import android.util.Log
+import android.widget.Button
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.ui.StyledPlayerView
+import com.google.android.exoplayer2.ui.PlayerView
 import com.villalbadiego.appmultimedia.R
 
 class VideoActivity : AppCompatActivity() {
-    private lateinit var styledPlayerView: StyledPlayerView
-    private lateinit var progressBar: ProgressBar
+
+    private lateinit var btnRecordVideo: Button
+    private lateinit var btnPlayVideo: Button
+    private lateinit var playerView: PlayerView
     private var exoPlayer: ExoPlayer? = null
-    private var estaReproduciendo = false
+    private var videoUri: Uri? = null
+
+    private lateinit var recordVideoLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video)
 
-        // Inicialización de las vistas
-        styledPlayerView = findViewById(R.id.playerView)
-        progressBar = findViewById(R.id.progressBar)
+        btnRecordVideo = findViewById(R.id.btnRecordVideo)
+        btnPlayVideo = findViewById(R.id.btnPlayVideo)
+        playerView = findViewById(R.id.playerView)
 
-        // Configuración de ExoPlayer
-        exoPlayer = ExoPlayer.Builder(this).build().apply {
-            styledPlayerView.player = this // Usamos styledPlayerView para controlar el reproductor
+        checkPermissions()
+
+        recordVideoLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                videoUri = result.data?.data
+                Log.d("VideoActivity", "Video recorded URI: $videoUri")
+            }
         }
 
-        // Cargar y preparar el video
-        val videoUri = Uri.parse("android.resource://${packageName}/raw/video_ejemplo")
-        val mediaItem = MediaItem.fromUri(videoUri)
+        btnRecordVideo.setOnClickListener {
+            val videoIntent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
+            recordVideoLauncher.launch(videoIntent)
+        }
+
+        btnPlayVideo.setOnClickListener {
+            if (videoUri != null) {
+                playVideo(videoUri!!)
+            } else {
+                Log.d("VideoActivity", "No video URI available to play")
+            }
+        }
+    }
+
+    private fun playVideo(uri: Uri) {
+        exoPlayer = ExoPlayer.Builder(this).build()
+        playerView.player = exoPlayer
+        val mediaItem = MediaItem.fromUri(uri)
         exoPlayer?.setMediaItem(mediaItem)
-
         exoPlayer?.prepare()
-
-        // Configurar el seguimiento del progreso del video
-        exoPlayer?.addListener(object : com.google.android.exoplayer2.Player.Listener {
-            override fun onPlaybackStateChanged(playbackState: Int) {
-                super.onPlaybackStateChanged(playbackState)
-                when (playbackState) {
-                    com.google.android.exoplayer2.Player.STATE_READY -> {
-                        progressBar.visibility = View.GONE // Ocultar progress bar cuando esté listo
-                        estaReproduciendo = true
-                    }
-                    com.google.android.exoplayer2.Player.STATE_ENDED -> {
-                        estaReproduciendo = false
-                    }
-                    com.google.android.exoplayer2.Player.STATE_IDLE -> {
-                        progressBar.visibility = View.VISIBLE // Mostrar progress bar cuando esté cargando
-                    }
-                    else -> {}
-                }
-            }
-        })
-
-        // Iniciar la reproducción del video
-        reproducirVideo()
-    }
-
-    private fun reproducirVideo() {
         exoPlayer?.play()
-        estaReproduciendo = true
     }
 
-    override fun onPause() {
-        super.onPause()
-        exoPlayer?.let {
-            if (it.isPlaying) {
-                it.pause()
-            }
+    private fun checkPermissions() {
+        if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
+            checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE), 100)
         }
     }
 

@@ -30,14 +30,14 @@
         android:layout_marginTop="40dp"
         android:padding="15dp"
         android:layout_marginBottom="10dp"
-        android:contentDescription="Botón para reproducir sonido 1" />
+        android:contentDescription="@string/reproducir_sonido1" />
 
     <!-- Etiqueta para el progreso del sonido 1 -->
     <TextView
         android:id="@+id/tvProgressLabel1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Progreso del Sonido 1"
+        android:text="@string/progreso_sonido1"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:layout_below="@id/btnSound1"
@@ -70,14 +70,14 @@
         android:layout_marginTop="30dp"
         android:padding="15dp"
         android:layout_marginBottom="10dp"
-        android:contentDescription="Botón para reproducir sonido 2" />
+        android:contentDescription="@string/reproducir_sonido2" />
 
     <!-- Etiqueta para el progreso del sonido 2 -->
     <TextView
         android:id="@+id/tvProgressLabel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Progreso del Sonido 2"
+        android:text="@string/progreso_sonido2"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:layout_below="@id/btnSound2"
@@ -101,7 +101,7 @@
         android:id="@+id/tvVolumeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ajuste de volumen"
+        android:text="@string/ajuste_volumen"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:layout_below="@id/seekBarProgress2"

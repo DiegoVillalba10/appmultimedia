@@ -54,7 +54,7 @@ class SoundActivity : AppCompatActivity() {
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
-
+    
         // Configuración de los botones
         btnSound1.setOnClickListener {
             if (estaReproduciendo1) {
