@@ -12,14 +12,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.ui.PlayerView
+import com.google.android.exoplayer2.ui.StyledPlayerView
 import com.villalbadiego.appmultimedia.R
 
 class VideoActivity : AppCompatActivity() {
 
     private lateinit var btnRecordVideo: Button
     private lateinit var btnPlayVideo: Button
-    private lateinit var playerView: PlayerView
+    private lateinit var playerView: StyledPlayerView
     private var exoPlayer: ExoPlayer? = null
     private var videoUri: Uri? = null
 
