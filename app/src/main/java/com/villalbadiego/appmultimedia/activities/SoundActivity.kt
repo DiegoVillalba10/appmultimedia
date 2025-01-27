@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.villalbadiego.appmultimedia.R
@@ -32,8 +33,8 @@ class SoundActivity : AppCompatActivity() {
         seekBarProgress2 = findViewById(R.id.seekBarProgress2)
 
         // Inicialización de los botones
-        val btnSound1: Button = findViewById(R.id.btnSound1)
-        val btnSound2: Button = findViewById(R.id.btnSound2)
+        val btnSound1: ImageButton = findViewById(R.id.btnSound1)
+        val btnSound2: ImageButton = findViewById(R.id.btnSound2)
 
         // Crear instancias de los MediaPlayer
         mediaPlayer1 = MediaPlayer.create(this, R.raw.sound1)
@@ -96,7 +97,8 @@ class SoundActivity : AppCompatActivity() {
             estaReproduciendo2 = false
         }
     }
-
+    
+    // Función que actualiza el progreso del Seekbar.
     private fun actualizarProgreso(mediaPlayer: MediaPlayer?, seekBar: SeekBar) {
         handler.postDelayed(object : Runnable {
             override fun run() {
@@ -107,7 +109,8 @@ class SoundActivity : AppCompatActivity() {
             }
         }, 1000)
     }
-
+    
+    // Función que asigna el evento del cambio de progreso.
     private fun createSeekBarChangeListener(mediaPlayer: MediaPlayer?): SeekBar.OnSeekBarChangeListener {
         return object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -120,13 +123,15 @@ class SoundActivity : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         }
     }
-
+    
+    // Para pausar los reproductores
     override fun onPause() {
         super.onPause()
         mediaPlayer1?.pause()
         mediaPlayer2?.pause()
     }
 
+    // Para que al cerrar la actividad se destruyan y dejen de consumir recursos.
     override fun onDestroy() {
         super.onDestroy()
         mediaPlayer1?.release()
